@@ -6,19 +6,23 @@ const supportList = ["Find Community", "Study Buddy"];
 function editProfile() {
     var name = document.getElementById("name");
     name.contentEditable = true;
+
     const traits = document.getElementsByClassName('traits');
     for (let i = 0; i < traits.length; i++) {
         const elements = traits[i].getElementsByTagName('p');
-        for (let j = 0; j < elements.length; j++) {
-            elements[j].addEventListener('click', function() {
+        for (let j = elements.length - 1; j >= 0; j--) {
+            elements[j].addEventListener('click', function () {
                 elements[j].remove();
             });
         }
     }
-    createButton('personality');
-    createButton('activities');
-    createButton('living');
-    createButton('support');
+
+    ['personality', 'activities', 'living', 'support'].forEach(id => {
+        const container = document.getElementById(id);
+        if (!container.querySelector('button')) {
+            createButton(id);
+        }
+    });
 }
 
 function createButton(category) {
@@ -103,7 +107,6 @@ const checkEdits = () => {
     }
 
 window.addEventListener('DOMContentLoaded', checkEdits);
-window.addEventListener('DOMContentLoaded', saveProfile);
 
 
 

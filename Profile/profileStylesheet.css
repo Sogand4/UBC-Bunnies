@@ -76,16 +76,24 @@ h1, h2 {
     margin-right: 5%;
 }
 
-.editButton {
-    margin-top: 20px; 
+.editAndSaveButton {
+    margin-top: 20px;
     font-size: 15px;
-    outline: none;
-    color: white;
-    background: #F4C8D9;
+    color: #ffffff;
+    background-color: #F4C8D9;
     width: 6rem;
     height: 3rem;
     border-radius: 20px;
     border: none;
+    font-weight: 600;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.editAndSaveButton:active,
+.editAndSaveButton:focus {
+    outline: none;
+    opacity: 1;
 }
 
 .littleButton {
