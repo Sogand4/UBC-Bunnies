@@ -2,6 +2,8 @@
 
 **UBC-Bunnies** is a mental health and peer-support web app built at **HackCamp 2024** to help UBC students find connection, support, and understanding through shared experiences.
 
+The name Bunnies is a play on *buddies*, representing the app’s goal of helping students find supportive peers in a friendly, approachable way.
+
 Video demo: https://devpost.com/software/bunnies
 
 **UBC-Bunnies** was a **finalist** for **HackCamp 2024**, hosted by **nwPlus**.
