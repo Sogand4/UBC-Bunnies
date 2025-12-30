@@ -8,19 +8,24 @@
 </head>
 
 <body>
-    <div class="form-container">
-        <form action="../afterLoginHomePage/afterLoginHome.htm" method="GET">   
-            <img src="../images/LoginBunny.svg" alt="Login Bunny" class="login-bunny-image">
-            <h1>Login</h1>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username"><br><br>
-            
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password"><br><br>
-            
-            <button type="submit">Login</button>
-        </form>
-    </div>
+  <div class="page">
+    <form action="../afterLoginHomePage/afterLoginHome.htm" method="GET">
+      <img src="../images/LoginBunny.svg" alt="Login Bunny" class="login-bunny-image">
+      <h1>Login</h1>
+
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username">
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p class="login-note">
+      Demo note: This app uses a simplified, hardcoded login. Any credentials will work.
+    </p>
+  </div>
 </body>
 
 </html>
