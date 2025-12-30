@@ -20,19 +20,16 @@ const populateTags = (traitsObject, sectionId) => {
         return;
     }
 
-    section.innerHTML = ""; // Clear existing tags
-
-    // Iterate over the traits object and create sections
+    section.innerHTML = "";
+    
     for (const [traitType, traits] of Object.entries(traitsObject)) {
         if (traits.length > 0) {
-            // Create a heading for the trait type
             const heading = document.createElement("p");
             heading.textContent = traitType;
             heading.style.fontWeight = "bold";
             heading.style.marginBottom = "5px";
             section.appendChild(heading);
 
-            // Add the tags under the heading
             traits.forEach(trait => {
                 const tag = document.createElement("span");
                 tag.classList.add("tag");
@@ -40,7 +37,6 @@ const populateTags = (traitsObject, sectionId) => {
                 section.appendChild(tag);
             });
 
-            // Add spacing after each section
             const spacing = document.createElement("div");
             spacing.style.marginBottom = "15px";
             section.appendChild(spacing);
@@ -60,7 +56,6 @@ const populateProfile = (user) => {
     profileName.textContent = user.getName();
     profileBio.textContent = user.getBio();
 
-    // Fetch current user traits
     const currentUserTraits = getCurrentUserTraits();
 
     // Calculate similarities and differences
@@ -94,7 +89,6 @@ const populateProfile = (user) => {
         )
     };
 
-    // Populate similarities and differences sections
     populateTags(similarities, "similarities-section");
     populateTags(differences, "differences-section");
 };
@@ -105,9 +99,8 @@ function swipeProfile(action) {
     const differencesSection = document.querySelector(".differences-section");
     const similaritiesSection = document.querySelector(".similarities-section");
 
-    // Handle the swipe based on action (accept or reject)
     if (action === "reject") {
-        currentProfile.classList.add("outgoing"); // swipe out
+        currentProfile.classList.add("outgoing");
         differencesSection.classList.add("active");
         similaritiesSection.classList.remove("active");
     } else if (action === "accept") {
@@ -118,15 +111,13 @@ function swipeProfile(action) {
 
     // Wait for the animation to complete before updating the profile
     setTimeout(() => {
-        currentProfile.remove(); // Remove the outgoing profile
+        currentProfile.remove();
 
-        // Create a new profile
         const profileContainer = document.getElementById("profile-container");
         const newProfile = document.createElement("div");
         newProfile.id = "current-profile";
         newProfile.className = "profile-section incoming";
 
-        // Add elements for the new profile
         const imgElement = document.createElement("img");
         const nameElement = document.createElement("h3");
         const bioElement = document.createElement("p");
@@ -134,19 +125,16 @@ function swipeProfile(action) {
         newProfile.append(imgElement, nameElement, bioElement);
         profileContainer.insertBefore(newProfile, similaritiesSection);
 
-        // Populate the new profile
         currentIndex = (currentIndex + 1) % allUsers.length;
         populateProfile(allUsers[currentIndex]);
 
-        // Trigger the animation
         setTimeout(() => {
             newProfile.classList.remove("incoming");
-        }, 10); // Small delay to ensure animation is applied
+        }, 10);
 
-        // Reset differences and similarities sections
         differencesSection.classList.remove("active");
         similaritiesSection.classList.remove("active");
-    }, 500); // Match this with your CSS transition duration
+    }, 500);
 }
 
 // Ensure DOM is fully loaded before adding event listeners
@@ -154,7 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const firstUser = allUsers[currentIndex];
     populateProfile(firstUser);
 
-    // Add event listeners to accept and reject buttons
     const rejectBtn = document.getElementById("reject-btn");
     const acceptBtn = document.getElementById("accept-btn");
 

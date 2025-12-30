@@ -15,7 +15,7 @@ body {
 .match-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Adjusted to align items to the top */
+    align-items: flex-start;
     margin: 50px auto;
     width: 90%;
     max-width: 1000px;
@@ -28,9 +28,9 @@ body {
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
-    text-align: center; /* Center text */
-    padding-bottom: 100px; /* Add more space at the bottom */
-    width: 10%; /* Adjust this percentage to make it thinner */
+    text-align: center;
+    padding-bottom: 100px;
+    width: 10%;
 
 }
 
@@ -70,8 +70,8 @@ body {
 .attributes {
     margin-top: 20px;
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column;
+    align-items: center;
 }
 
 .attribute {
@@ -89,15 +89,13 @@ body {
     margin: 5px 5px 5px 0;
     padding: 5px 10px;
     background-color: #ffffff;
-    /* tag background color */
-    color: rgb(13, 11, 11); 
-    /* font color */
+    color: rgb(13, 11, 11);
     border-radius: 5px;
 }
 
 .reject-button, .accept-button {
     position: absolute;
-    bottom: 20px; /* Ensure it is positioned at the bottom */
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
 }

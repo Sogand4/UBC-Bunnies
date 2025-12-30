@@ -44,7 +44,6 @@
 
   <!-- Main Container -->
   <div class="container">
-    <!-- User List -->
     <div class="user-list">
       <ul>
         <li data-user="user1">Emily</li>
@@ -56,7 +55,6 @@
 
     <!-- Chat Container -->
     <div class="chat-container">
-      <!-- Header Section -->
       <div class="msg-header">
         <div class="container1">
           <img src="../images/user2.png" alt="pfp" class="msgimg">
@@ -70,7 +68,6 @@
       <div class="msg-inbox" id="chatBox">
         <div class="chats">
           <div class="msg-page">
-            <!-- Received Message -->
             <div class="received-chats">
               <div class="received-chats-img">
                 <img src="../images/user2.png" alt="User 2" class="profile-pic">
@@ -116,9 +113,9 @@
       <!-- Message Input Section -->
       <div class="msg-bottom">
         <div class="input-group">
-          <input type="text" id="messageInput" class="form-control" placeholder="Say hi!"> <!-- ID added for JS -->
+          <input type="text" id="messageInput" class="form-control" placeholder="Say hi!">
           <div class="input-group-append">
-            <span class="input-group-text send-icon" id="sendButton"><i class="bi bi-send"></i></span> <!-- ID added for JS -->
+            <span class="input-group-text send-icon" id="sendButton"><i class="bi bi-send"></i></span>
           </div>
         </div>
       </div>
@@ -140,7 +137,7 @@
 
         if (message) {
             displayMessage(message);
-            messageInput.value = ''; // Clear the input field
+            messageInput.value = '';
         }
     }
 
@@ -156,7 +153,7 @@
         
         const outgoingChatsMsg = document.createElement('div');
         outgoingChatsMsg.classList.add('outgoing-chats-msg');
-        outgoingChatsMsg.style.backgroundColor = 'pink'; // Set background to pink for user messages
+        outgoingChatsMsg.style.backgroundColor = 'pink';
         
         const messageText = document.createElement('p');
         messageText.textContent = message;
@@ -166,17 +163,15 @@
         outgoingChat.appendChild(outgoingMsg);
         
         chatBox.appendChild(outgoingChat);
-        chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+        chatBox.scrollTop = chatBox.scrollHeight;
     }
 
     function displayMessage(message) {
     const chatBox = document.getElementById('chatBox');
     
-    // Create new message bubble for sent message
     const outgoingChat = document.createElement('div');
     outgoingChat.classList.add('outgoing-chats');
 
-    // Profile image container
     const outgoingChatsImg = document.createElement('div');
     outgoingChatsImg.classList.add('outgoing-chats-img');
 
@@ -188,19 +183,17 @@
 
     outgoingChat.appendChild(outgoingChatsImg);
 
-    // Message text container
     const outgoingMsg = document.createElement('div');
     outgoingMsg.classList.add('outgoing-msg');
     
     const outgoingChatsMsg = document.createElement('div');
     outgoingChatsMsg.classList.add('outgoing-chats-msg');
-    outgoingChatsMsg.style.backgroundColor = 'white'; // Set background to pink for user messages
+    outgoingChatsMsg.style.backgroundColor = 'white';
     
     const messageText = document.createElement('p');
     messageText.textContent = message;
     outgoingChatsMsg.appendChild(messageText);
 
-    // Time stamp
     const timeSpan = document.createElement('span');
     timeSpan.classList.add('time');
     const currentTime = new Date();
@@ -211,7 +204,7 @@
     outgoingChat.appendChild(outgoingMsg);
 
     chatBox.appendChild(outgoingChat);
-    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
 
   </script>

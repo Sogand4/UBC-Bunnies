@@ -88,15 +88,14 @@ body {
     margin-left: 7%;
 }
 
-
 .bottomStats{
 
-        position: fixed; /* Sticks to the viewport, even on scroll */
-        bottom: 0;       /* Positions it exactly at the bottom */
-        left: 0;         /* Optional: aligns it to the left edge of the screen */
-        width: 100%;     /* Optional: full width across the bottom */
-        height: 150px;    /* Set desired height */
-        background-color: #BEB8F4; /* Set desired background color */
+        position: fixed; 
+        bottom: 0;  
+        left: 0; 
+        width: 100%;
+        height: 150px;
+        background-color: #BEB8F4;
 
       
 }
