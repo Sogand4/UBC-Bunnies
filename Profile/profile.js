@@ -1,28 +1,48 @@
+let isEditing = false;
+
 const personalityList = ["Extroverted", "Creative", "Sweet", "Jester"];
 const activitiesList = ["Swimming", "Painting", "Hiking", "PLaying Guitar"];
 const livingList = ["In Dorms", "With Parents"];
 const supportList = ["Find Community", "Study Buddy"];
+const categories = ["personality", "activities", "living", "support"];
 
 function editProfile() {
-    var name = document.getElementById("name");
-    name.contentEditable = true;
+  isEditing = true;
 
-    const traits = document.getElementsByClassName('traits');
-    for (let i = 0; i < traits.length; i++) {
-        const elements = traits[i].getElementsByTagName('p');
-        for (let j = elements.length - 1; j >= 0; j--) {
-            elements[j].addEventListener('click', function () {
-                elements[j].remove();
-            });
-        }
-    }
+  const name = document.getElementById("name");
+  name.contentEditable = true;
 
-    ['personality', 'activities', 'living', 'support'].forEach(id => {
-        const container = document.getElementById(id);
-        if (!container.querySelector('button')) {
-            createButton(id);
-        }
+  categories.forEach((category) => {
+    const container = document.getElementById(category);
+
+    const pElements = container.querySelectorAll("p");
+    pElements.forEach((p) => {
+      p.style.cursor = "pointer";
+      p.onclick = () => {
+        if (isEditing) p.remove();
+      };
     });
+
+    if (!container.querySelector("button.littleButton")) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.textContent = "+";
+      btn.className = "littleButton";
+      btn.onclick = () => addRandomTrait(category);
+      container.appendChild(btn);
+    }
+  });
+}
+
+function addRandomTrait(category) {
+  let list = [];
+  if (category === "personality") list = personalityList;
+  if (category === "activities") list = activitiesList;
+  if (category === "living") list = livingList;
+  if (category === "support") list = supportList;
+
+  const text = list[Math.floor(Math.random() * list.length)];
+  addTrait(category, text);
 }
 
 function createButton(category) {
@@ -84,16 +104,29 @@ function loadTraits(category) {
     }
 }
 
-const saveProfile = () => {
-    var name = document.getElementById("name");
-    var userName = name.innerHTML;
-    localStorage.setItem('name', userName);
-    name.contentEditable = false; 
-    saveTraits('personality');
-    saveTraits('activities');
-    saveTraits('living');
-    saveTraits('support');
+function saveProfile() {
+  const nameEl = document.getElementById("name");
+  localStorage.setItem("name", nameEl.innerHTML);
+
+  categories.forEach((category) => saveTraits(category));
+
+  isEditing = false;
+  nameEl.contentEditable = false;
+
+  categories.forEach((category) => {
+    const container = document.getElementById(category);
+
+    const btn = container.querySelector("button.littleButton");
+    if (btn) btn.remove();
+
+    const pElements = container.querySelectorAll("p");
+    pElements.forEach((p) => {
+      p.style.cursor = "default";
+      p.onclick = null;
+    });
+  });
 }
+
 
 const checkEdits = () => {
     let name = localStorage.getItem('name');
