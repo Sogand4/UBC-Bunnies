@@ -4,7 +4,8 @@
 
 Video demo: https://devpost.com/software/bunnies
 
-**UBC-Bunnies** was submitted to **HackCamp 2024** and was a *Finalist*
+**UBC-Bunnies** was a **finalist** for **HackCamp 2024**, hosted by **nwPlus**.
+
 
 ## Inspiration
 
@@ -12,7 +13,7 @@ We were inspired by the HackCamp theme and a common challenge faced by many UBC 
 
 ## What It Does
 
-Bunnies allows users to:
+UBC-Bunnies allows users to:
 
 - Create a personal profile with personality traits, interests, living situations, and support goals  
 - Get matched with other students through a swipe-style matchmaking experience based on shared traits and goals
@@ -43,7 +44,7 @@ Any credentials entered will proceed into the app.
 
 Authentication and security were not the focus of this project — the focus was on user experience, interaction design, and front-end logic.
 
-## What’s Next for Bunnies
+## Future Improvements
 
 - Add an AI-powered mental health support chatbot  
 - Replace localStorage with a real backend and database  
